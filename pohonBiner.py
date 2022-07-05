@@ -46,3 +46,14 @@ E.kiri = H;G.kanan = I
 
 print(ukuranPohon(A))
 
+##print daun pohon
+
+def tampilLuarKiri(data):
+   if data.kiri is not None:
+      tampilLuarKiri(data.kiri)
+   print(data.data)
+
+def tampilLuarKanan(data):
+   if data.kanan is not None:
+      tampilLuarKanan(data.kanan)
+   print(data.data)
