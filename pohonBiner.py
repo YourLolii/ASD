@@ -1,55 +1,48 @@
-##Kelas Penyimpanan
+####POHON BINER
 
-class _SimpulPohonBiner(object):
+class SimpulPohonBiner(object):
     def __init__(self, data):
         self.data = data
         self.kiri = None
         self.kanan = None
+akar = 8
+def ukuranPohon(akar, count = 0):
+    if akar is None:
+        return count
+    else:
+        return ukuranPohon(akar.kiri, ukuranPohon(akar.kanan, count+1))
+    
+A = SimpulPohonBiner('A')
+B = SimpulPohonBiner('B')
+C = SimpulPohonBiner('C')
+D = SimpulPohonBiner('D')
+E = SimpulPohonBiner('E')
+F = SimpulPohonBiner('F')
+G = SimpulPohonBiner('G')
+H = SimpulPohonBiner('H')
+I = SimpulPohonBiner('I')
+J = SimpulPohonBiner('J')
 
-##Membuat Simpul-simpul dan Mengisi Data
-A = _SimpulPohonBiner("Ambarawa")
-B = _SimpulPohonBiner("Bantul")
-C = _SimpulPohonBiner("Cimahi")
-D = _SimpulPohonBiner("Denpasar")
-E = _SimpulPohonBiner("Enrekang")
-F = _SimpulPohonBiner("Flores")
-G = _SimpulPohonBiner("Garut")
-H = _SimpulPohonBiner("Halmahera Timur")
-I = _SimpulPohonBiner("Indramayu")
-J = _SimpulPohonBiner("Jakarta")
+A.kiri = B;A.kanan = C
+B.kiri = D;B.kanan = E
+C.kiri = F;C.kanan = G
+E.kiri = H;G.kanan = I
+#preorder traversal
+##def preorderTrav(subpohon):
+##    if subpohon is not None:
+##        print(subpohon.data)
+##        preorderTrav(subpohon.kiri)
+##        preorderTrav(subpohon.kanan)
 
-##Menghubungkan simpul ortu-anak(sesuai gambar 9.5a)
+##preorderTrav(A)
+#inorder traversal
+##def inorderTrav(subpohon):
+##    if subpohon is not None:
+##        inorderTrav(subpohon.kiri)
+##        print(subpohon.data)
+##        inorderTrav(subpohon.kanan)
+##
+##inorderTrav(A)
 
-A.kiri = B; A.kanan = C
-B.kiri = D; B.kanan = E
-C.kiri = F; C.kanan = G
-E.kiri = H
-G.kanan = I
+print(ukuranPohon(A))
 
-### TREE TRAVERSAL
-
-##Preorder Traversal(dimulai dari simul akar)
-def preorderTrav( subpohon):
-    if subpohon is not None :
-        print( subpohon.data )
-        preorderTrav(subpohon.kiri)
-        preorderTrav(subpohon.kanan)
-
-preorderTrav(A)
-
-##Inorder Traversal
-def inorderTrav(subpohon):
-    if subpohon is not None:
-        inorderTrav(subpohon.kiri)
-        print(subpohon.data)
-        inorderTrav(subpohon.kanan)
-
-inorderTrav(A)
-
-##Postorder Traversal
-
-def postorderTrav(subpohon):
-    if subpohon is not None:
-        postorderTrav(subpohon.kiri)
-        postorderTrav(subpohon.kanan)
-        print(subpohon.data)
